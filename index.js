@@ -10,8 +10,11 @@ var server = http.createServer(function(req, res){
     var parsedUrl = url.parse(req.url, true)
 
     // Get path
-    var path = parsedUrl.path
+    var path = parsedUrl.pathname;
     var trimmedPath = path.replace(/^\/+|\/+$/g, '');
+
+    // Get query string parameters object
+    var queryStringsObject = parsedUrl.query;
 
     // Get method
     var method = req.method.toLowerCase();
@@ -20,7 +23,7 @@ var server = http.createServer(function(req, res){
     res.end('Hellow world');
 
     // Print request data to console
-    console.log('The path from request is: ' + trimmedPath + 'with method: ' + method);
+    console.log('The path from request is: ' + trimmedPath + ' with method: ' + method + ' and query string params: ', queryStringsObject);
 });
 
 // Listen on port 3000
