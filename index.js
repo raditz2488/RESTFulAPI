@@ -19,11 +19,14 @@ var server = http.createServer(function(req, res){
     // Get method
     var method = req.method.toLowerCase();
 
+    // Get headers
+    var headers = req.headers;
+
     // Send response 
     res.end('Hellow world');
 
     // Print request data to console
-    console.log('The path from request is: ' + trimmedPath + ' with method: ' + method + ' and query string params: ', queryStringsObject);
+    console.log('The headers in the request are \n', headers);
 });
 
 // Listen on port 3000
