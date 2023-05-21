@@ -13,11 +13,14 @@ var server = http.createServer(function(req, res){
     var path = parsedUrl.path
     var trimmedPath = path.replace(/^\/+|\/+$/g, '');
 
+    // Get method
+    var method = req.method.toLowerCase();
+
     // Send response 
     res.end('Hellow world');
 
-    // Print path
-    console.log('The path from request is: '+ trimmedPath);
+    // Print request data to console
+    console.log('The path from request is: ' + trimmedPath + 'with method: ' + method);
 });
 
 // Listen on port 3000
